@@ -1,0 +1,1652 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #fff;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Animasi Background */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: float 15s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Header dengan Animasi */
+header {
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45aaf2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientShift 8s ease infinite;
+    background-size: 300% 300%;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards 0.5s;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navigasi Animasi */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    z-index: 100;
+    transition: all 0.3s ease;
+    background: rgba(26, 26, 46, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+nav.scrolled {
+    padding: 1rem 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(90deg, #45aaf2, #4ecdc4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #45aaf2;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #45aaf2;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Tombol Animasi */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(45deg, #45aaf2, #4ecdc4);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards 1s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s ease;
+}
+
+.btn:hover::after {
+    left: 100%;
+}
+
+/* Animasi Loading */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #16213e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease;
+}
+
+.loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-circle {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #45aaf2;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Section Umum */
+section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Tentang Saya */
+.about-content {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-img {
+    flex: 1;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateX(-50px);
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+.about-img.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.about-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.about-img:hover img {
+    transform: scale(1.05);
+}
+
+.about-text {
+    flex: 1;
+    transform: translateX(50px);
+    opacity: 0;
+    transition: all 0.8s ease 0.2s;
+}
+
+.about-text.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #45aaf2;
+}
+
+.skills {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.skill:hover {
+    background: #45aaf2;
+    transform: translateY(-3px);
+}
+
+/* Portofolio */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+.portfolio-item.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.portfolio-img {
+    height: 250px;
+    overflow: hidden;
+}
+
+.portfolio-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover .portfolio-img img {
+    transform: scale(1.1);
+}
+
+.portfolio-info {
+    padding: 1.5rem;
+}
+
+.portfolio-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-info p {
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.portfolio-tag {
+    background: rgba(69, 170, 242, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+}
+
+/* Kontak */
+.contact-container {
+    display: flex;
+    gap: 3rem;
+}
+
+.contact-info {
+    flex: 1;
+    transform: translateX(-50px);
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+.contact-info.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #45aaf2;
+}
+
+.contact-details {
+    margin-top: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(69, 170, 242, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    color: #45aaf2;
+}
+
+.contact-form {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateX(50px);
+    opacity: 0;
+    transition: all 0.8s ease 0.2s;
+}
+
+.contact-form.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #45aaf2;
+    background: rgba(69, 170, 242, 0.1);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Footer dengan Animasi */
+footer {
+    text-align: center;
+    padding: 3rem 0;
+    background: rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+footer p {
+    margin-bottom: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0 2rem;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    transform: translateY(-10px) scale(1.1);
+    background: #45aaf2;
+    color: white;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: #45aaf2;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsif */
+@media (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-img {
+        max-width: 400px;
+        margin-bottom: 2rem;
+    }
+    
+    .contact-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .tagline {
+        font-size: 1.2rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Enhanced Rocket Animation */
+.rocket-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 100px;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.rocket-container.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.rocket {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff3366;
+    font-size: 32px;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+    filter: drop-shadow(0 0 10px rgba(255, 102, 0, 0.6));
+}
+
+.rocket-flames {
+    position: absolute;
+    bottom: -5px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.flame {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(to top, #ff6600, #ffcc00);
+    filter: blur(3px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.flame-main {
+    width: 20px;
+    height: 40px;
+    bottom: 0;
+}
+
+.flame-particle-1 {
+    width: 8px;
+    height: 15px;
+    left: 10px;
+    bottom: 5px;
+    background: #ff9900;
+}
+
+.flame-particle-2 {
+    width: 6px;
+    height: 12px;
+    right: 12px;
+    bottom: 8px;
+    background: #ffcc00;
+}
+
+.flame-particle-3 {
+    width: 4px;
+    height: 10px;
+    left: 20px;
+    bottom: 3px;
+    background: #ffff00;
+}
+
+.stars-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    filter: blur(0.5px);
+    animation: twinkle var(--duration) infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+.click-hint {
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.rocket-container:hover .click-hint {
+    opacity: 1;
+    right: 65px;
+}
+
+/* Enhanced Launch Animation */
+.rocket.launch {
+    animation: rocketLaunch 2s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+}
+
+.rocket.launch .flame {
+    opacity: 1 !important;
+    animation: flameLaunch 2s ease-out forwards;
+}
+
+@keyframes rocketLaunch {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    20% {
+        transform: translateY(-20px) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(-300px) rotate(-15deg);
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(-25deg);
+        opacity: 0;
+    }
+}
+
+@keyframes flameLaunch {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Create stars during launch */
+@keyframes starTrail {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100vh);
+    }
+}
+
+/* Additional Animations */
+/* Floating animation for hero section */
+.hero-content h1 {
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero-content .tagline {
+    animation: float 3.5s ease-in-out infinite;
+    animation-delay: 0.2s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Section entrance animations */
+.section-title {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Portfolio item hover animation */
+.portfolio-item {
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Skill tags animation */
+.skill {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.skill:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact form input animation */
+.form-group input,
+.form-group textarea {
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Social icons animation */
+.social-icon {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.2);
+}
+
+/* Background particles animation */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-animation::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #f3ec78, #af4261);
+    opacity: 0.1;
+}
+
+.bg-particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(20px);
+        opacity: 0;
+    }
+}
+
+/* Loading animation enhancement */
+.loader-circle {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Navigation hover animation */
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ff3366;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Night Sky Background */
+.night-sky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+}
+
+/* Make stars more subtle */
+.star {
+    opacity: 0.8;
+}
+
+.moon {
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    width: 80px;
+    height: 80px;
+    background: #f5f3ce;
+    border-radius: 50%;
+    box-shadow: 0 0 40px #f5f3ce, 0 0 80px #f5f3ce66;
+    animation: moon-glow 4s ease-in-out infinite alternate;
+}
+
+.stars-container, .twinkling-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--duration) infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+@keyframes moon-glow {
+    0% { box-shadow: 0 0 40px #f5f3ce, 0 0 80px #f5f3ce66; }
+    100% { box-shadow: 0 0 50px #f5f3ce, 0 0 100px #f5f3ce80; }
+}
+
+/* Shooting stars */
+.shooting-star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    animation: shooting-star var(--duration) linear infinite;
+    opacity: 0;
+}
+
+@keyframes shooting-star {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(1000px) translateY(300px);
+        opacity: 0;
+    }
+}
+
+/* Solar System */
+.solar-system {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vmin;
+    height: 100vmin;
+    z-index: -1;
+}
+
+.sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75px;
+    height: 75px;
+    background: radial-gradient(circle, #ffd029 0%, #f1b604 70%);
+    border-radius: 50%;
+    box-shadow: 0 0 30px #ffd029;
+    animation: sun-pulse 3s infinite alternate;
+}
+
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mercury-orbit {
+    width: 200px;
+    height: 200px;
+    animation: orbit 5s linear infinite;
+}
+
+.venus-orbit {
+    width: 200px;
+    height: 200px;
+    animation: orbit 8s linear infinite;
+}
+
+.earth-orbit {
+    width: 240px;
+    height: 240px;
+    animation: orbit 12s linear infinite;
+}
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mercury {
+    width: 6px;
+    height: 6px;
+    background: #b5b5b5;
+}
+
+.venus {
+    width: 10px;
+    height: 10px;
+    background: #e6b98b;
+}
+
+.earth {
+    width: 10px;
+    height: 10px;
+    background: #6b93d6;
+}
+
+@keyframes orbit {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes sun-pulse {
+    from {
+        box-shadow: 0 0 30px #ffd029;
+    }
+    to {
+        box-shadow: 0 0 50px #ffd029;
+    }
+}
+
+/* Planet Orbits */
+.mercury {
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(to right, #b5b5b5, #d8d8d8);
+    animation: orbit 5s infinite;
+    transform-origin: 10vmin center;
+}
+
+.venus {
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(to right, #e6b98b, #d9a066);
+    animation: orbit 8s infinite;
+    transform-origin: 16vmin center;
+}
+
+.earth {
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(to right, #6b93d6, #2d5baf);
+    animation: orbit 12s infinite;
+    transform-origin: 22vmin center;
+}
+
+.mars {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(to right, #c1440e, #e05b1a);
+    animation: orbit 20s infinite;
+    transform-origin: 28vmin center;
+}
+
+.jupiter {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(to right, #e3b78d, #c88e5e);
+    animation: orbit 30s infinite;
+    transform-origin: 36vmin center;
+}
+
+.saturn {
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(to right, #e4e0c5, #d4cfaa);
+    animation: orbit 45s infinite;
+    transform-origin: 44vmin center;
+}
+
+.saturn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 130%;
+    height: 10px;
+    background: rgba(210, 210, 210, 0.3);
+    transform: translate(-50%, -50%) rotate(20deg);
+    border-radius: 50%;
+}
+
+.uranus {
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(to right, #c1e3e3, #8fd8d8);
+    animation: orbit 60s infinite;
+    transform-origin: 52vmin center;
+}
+
+.neptune {
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(to right, #5b5ddf, #3a3bbf);
+    animation: orbit 75s infinite;
+    transform-origin: 60vmin center;
+}
+
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg) translateX(var(--distance)) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(var(--distance)) rotate(-360deg);
+    }
+}
+
+@keyframes sun-pulse {
+    0% {
+        box-shadow: 0 0 50px #ffd029, 0 0 100px #f1b60480;
+    }
+    100% {
+        box-shadow: 0 0 70px #ffd029, 0 0 140px #f1b60480;
+    }
+}
+
+/* Constellation Animation */
+.constellations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.constellation-line {
+    position: absolute;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    transform-origin: left center;
+    animation: twinkle 4s infinite alternate;
+}
+
+@keyframes floatAstronaut {
+    0%, 100% { transform: translate(-50%, -50%) rotate(-5deg); }
+    50% { transform: translate(-50%, -60%) rotate(5deg); }
+}
+
+.astronaut {
+    position: fixed;
+    top: 30%;
+    left: 80%;
+    width: 100px;
+    z-index: 10;
+    animation: floatAstronaut 8s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+}
+
+/* Planet Info Cards */
+.planet-info-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    z-index: 100;
+    display: none;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.planet:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: transform 0.3s ease;
+}
+
+/* Gradient Text Animation */
+.hero-content h1 {
+    background: linear-gradient(45deg, #ff8a00, #e52e71, #00b4d8);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Custom Cursor */
+body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="white" stroke-width="1"/></svg>'), auto;
+}
+
+a, button {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M12 2L4 12l8 10 8-10z"/></svg>'), pointer;
+}
+
+/* Enhanced Portfolio Hover */
+.portfolio-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-item:hover .portfolio-img img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.portfolio-img {
+    overflow: hidden;
+}
+
+.portfolio-img img {
+    transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+/* Astronaut Animation */
+.astronaut-container {
+    position: fixed;
+    top: 20%;
+    right: 5%;
+    width: 150px;
+    height: 150px;
+    z-index: 10;
+    pointer-events: none;
+    animation: floatAstronaut 15s linear infinite;
+}
+
+.astronaut {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.astronaut img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+    animation: rotateAstronaut 8s ease-in-out infinite;
+}
+
+.astronaut-bubbles {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.astronaut-bubbles::before,
+.astronaut-bubbles::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: bubbleFloat 3s infinite ease-in;
+}
+
+/* Flying Rocket Animation */
+.flying-rocket {
+    position: fixed;
+    top: 10%;
+    left: -100px;
+    font-size: 30px;
+    color: #ff6600;
+    z-index: 10;
+    animation: flyRocket 25s linear infinite;
+    transform: rotate(45deg);
+    filter: drop-shadow(0 0 10px rgba(255, 102, 0, 0.7));
+}
+
+.rocket-trail {
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(90deg, #ff6600, transparent);
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    animation: trailPulse 1s infinite alternate;
+}
+
+/* Keyframes */
+@keyframes floatAstronaut {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-10vw, 5vh) rotate(5deg); }
+    50% { transform: translate(-20vw, 0) rotate(0deg); }
+    75% { transform: translate(-10vw, -5vh) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes rotateAstronaut {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@keyframes bubbleFloat {
+    0% { transform: translateY(0) scale(1); opacity: 0.8; }
+    100% { transform: translateY(-50px) scale(0.5); opacity: 0; }
+}
+
+@keyframes flyRocket {
+    0% { transform: translateX(-100px) rotate(45deg); }
+    100% { transform: translateX(calc(100vw + 100px)) rotate(45deg); }
+}
+
+@keyframes trailPulse {
+    0% { opacity: 0.7; width: 80px; }
+    100% { opacity: 0.3; width: 120px; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .astronaut-container {
+        width: 100px;
+        height: 100px;
+    }
+    .flying-rocket {
+        font-size: 20px;
+        animation-duration: 15s;
+    }
+}
+
+/* Astronaut Container */
+.astronaut-container {
+    position: fixed;
+    top: 30%;
+    right: 10%;
+    width: 120px;
+    height: 120px;
+    z-index: 100;
+    animation: float 15s ease-in-out infinite;
+}
+
+/* Astronaut Image */
+.astronaut {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+    transform-origin: center;
+    animation: rotate 8s ease-in-out infinite;
+}
+
+/* Bubbles */
+.bubbles-container {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: bubble-float 3s ease-in infinite;
+}
+
+/* Keyframes */
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-50px, 20px); }
+    50% { transform: translate(-100px, 0); }
+    75% { transform: translate(-50px, -20px); }
+}
+
+@keyframes rotate {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@keyframes bubble-float {
+    0% { 
+        transform: translate(0, 0) scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% { 
+        transform: translate(-20px, -100px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Cloud Animations */
+.clouds-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Behind content but above space background */
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    filter: blur(15px);
+    opacity: 0.3;
+}
+
+.cloud-1 {
+    width: 200px;
+    height: 60px;
+    top: 15%;
+    left: -200px;
+    animation: cloudFloat 30s linear infinite;
+}
+
+.cloud-2 {
+    width: 300px;
+    height: 100px;
+    top: 30%;
+    left: -300px;
+    animation: cloudFloat 40s linear infinite 5s;
+}
+
+.cloud-3 {
+    width: 250px;
+    height: 80px;
+    top: 50%;
+    left: -250px;
+    animation: cloudFloat 35s linear infinite 10s;
+}
+
+.cloud-4 {
+    width: 180px;
+    height: 50px;
+    top: 70%;
+    left: -180px;
+    animation: cloudFloat 25s linear infinite 15s;
+}
+
+@keyframes cloudFloat {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(calc(100vw + 100%)); }
+    /* Change durations to smaller values */
+}
+
+/* Adjust for space theme */
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.cloud-1 {
+    background: rgba(100, 150, 255, 0.1); /* Blue tint */
+}
+.cloud-2 {
+    background: rgba(255, 100, 200, 0.1); /* Pink tint */
+}
+
+.cloud-3::after {
+    width: 100px;
+    height: 100px;
+    top: -30px;
+    left: 40px;
+}
+
+.cloud-4::after {
+    width: 70px;
+    height: 70px;
+    top: -20px;
+    left: 20px;
+}
+
+/* Floating Planets */
+.floating-planets {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Behind content but above space background */
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.floating-planet {
+    position: absolute;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+/* Planet 1 - Gas Giant */
+.planet-1 {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 30% 30%, #ff9a44, #e67e22);
+    top: 15%;
+    left: 10%;
+    animation: floatPlanet1 25s infinite ease-in-out;
+    box-shadow: inset -20px -20px 60px #00000080;
+}
+
+/* Planet 2 - Ice Planet */
+.planet-2 {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 70% 30%, #a5d8ff, #74b9ff);
+    top: 60%;
+    left: 80%;
+    animation: floatPlanet2 30s infinite ease-in-out;
+    box-shadow: inset -15px -15px 40px #00000080;
+}
+
+/* Planet 3 - Rocky Planet */
+.planet-3 {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 50% 30%, #a29bfe, #6c5ce7);
+    top: 30%;
+    left: 70%;
+    animation: floatPlanet3 35s infinite ease-in-out;
+    box-shadow: inset -10px -10px 30px #00000080;
+}
+
+/* Planet Animations */
+@keyframes floatPlanet1 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(50px, 30px) rotate(10deg); }
+    50% { transform: translate(20px, 60px) rotate(20deg); }
+    75% { transform: translate(-30px, 40px) rotate(10deg); }
+}
+
+@keyframes floatPlanet2 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-60px, 20px) rotate(-15deg); }
+    50% { transform: translate(-30px, -40px) rotate(-30deg); }
+    75% { transform: translate(40px, -20px) rotate(-15deg); }
+}
+
+@keyframes floatPlanet3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(40px, 20px) scale(1.1); }
+    50% { transform: translate(-20px, 30px) scale(0.9); }
+    75% { transform: translate(-40px, -10px) scale(1.05); }
+}
+
+/* Add planet details */
+.planet-1::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 10px;
+    background: #e67e22;
+    border-radius: 5px;
+    top: 40%;
+    left: 20%;
+    transform: rotate(45deg);
+    opacity: 0.8;
+}
+
+.planet-2::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    top: 30%;
+    transform: rotate(20deg);
+}
